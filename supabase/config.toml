@@ -1,0 +1,16 @@
+project_id = "vnojabnnyuoddorwsfay"
+
+[functions.remote-llm]
+verify_jwt = false
+
+[functions.remote-embedding]
+verify_jwt = false
+
+[functions.voice-to-text]
+verify_jwt = false
+
+[functions.text-to-speech]
+verify_jwt = false
+
+[functions.ocr-image]
+verify_jwt = false

@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* RAG Assistant Design System - Dark ChatGPT-like theme */
+
+@layer base {
+  :root {
+    /* Dark theme as default for RAG assistant */
+    --background: 216 39% 10%;
+    --foreground: 220 13% 93%;
+
+    --card: 220 33% 9%;
+    --card-foreground: 220 13% 93%;
+
+    --popover: 220 33% 9%;
+    --popover-foreground: 220 13% 93%;
+
+    /* Teal accent - ChatGPT style */
+    --primary: 160 75% 35%;
+    --primary-foreground: 220 13% 93%;
+
+    --secondary: 220 26% 14%;
+    --secondary-foreground: 220 13% 93%;
+
+    --muted: 220 26% 14%;
+    --muted-foreground: 220 13% 60%;
+
+    --accent: 160 75% 35%;
+    --accent-foreground: 220 13% 93%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 220 13% 93%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 220 13% 93%;
+
+    --border: 220 26% 18%;
+    --input: 220 26% 18%;
+    --ring: 160 75% 35%;
+
+    --radius: 0.75rem;
+
+    /* Chat-specific colors */
+    --user-bubble: 216 45% 8%;
+    --assistant-bubble: 220 33% 9%;
+    --sources-panel: 220 30% 11%;
+
+    /* Sidebar */
+    --sidebar-background: 220 33% 9%;
+    --sidebar-foreground: 220 13% 93%;
+    --sidebar-primary: 160 75% 35%;
+    --sidebar-primary-foreground: 220 13% 93%;
+    --sidebar-accent: 220 26% 14%;
+    --sidebar-accent-foreground: 220 13% 93%;
+    --sidebar-border: 220 26% 18%;
+    --sidebar-ring: 160 75% 35%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@layer components {
+  /* Message bubble animations - enhanced with scale */
+  .message-enter {
+    animation: messageEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes messageEnter {
+    from {
+      opacity: 0;
+      transform: translateY(12px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Streaming text token animation */
+  @keyframes tokenFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Typing indicator */
+  .typing-indicator {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px 0;
+  }
+
+  .typing-indicator span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: hsl(var(--primary));
+    animation: typingBounce 1.4s infinite ease-in-out both;
+  }
+
+  .typing-indicator span:nth-child(1) {
+    animation-delay: -0.32s;
+  }
+
+  .typing-indicator span:nth-child(2) {
+    animation-delay: -0.16s;
+  }
+
+  @keyframes typingBounce {
+    0%, 80%, 100% {
+      transform: scale(0.6);
+      opacity: 0.4;
+    }
+    40% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Streaming text effect */
+  .streaming-cursor::after {
+    content: '▋';
+    animation: blink 1s infinite;
+    color: hsl(var(--primary));
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* Drag and drop zone */
+  .drop-zone {
+    @apply border-2 border-dashed border-border rounded-xl transition-all duration-200;
+  }
+
+  .drop-zone.active {
+    @apply border-primary bg-primary/5;
+  }
+
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+
+  /* Source card hover effect */
+  .source-card {
+    @apply transition-all duration-200;
+  }
+
+  .source-card:hover {
+    @apply bg-secondary/80 shadow-lg transform scale-105;
+  }
+
+  /* Message hover effect */
+  .message-bubble {
+    @apply transition-all duration-200;
+  }
+
+  .message-bubble:hover {
+    @apply bg-secondary/50;
+  }
+
+  /* Smooth transitions for all interactive elements */
+  button, a, input, textarea {
+    @apply transition-colors duration-200;
+  }
+
+  /* Markdown prose styles */
+  .prose {
+    color: hsl(var(--foreground));
+  }
+
+  .prose :where(code):not(:where([class~="not-prose"] *)) {
+    background: hsl(var(--muted));
+    padding: 0.2em 0.4em;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-weight: 500;
+  }
+
+  .prose :where(pre):not(:where([class~="not-prose"] *)) {
+    background: hsl(var(--muted));
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.5rem;
+    padding: 1rem;
+    overflow-x: auto;
+  }
+
+  .prose :where(pre code):not(:where([class~="not-prose"] *)) {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    font-size: 0.875rem;
+  }
+
+  .prose :where(a):not(:where([class~="not-prose"] *)) {
+    color: hsl(var(--primary));
+    text-decoration: underline;
+  }
+
+  .prose :where(strong):not(:where([class~="not-prose"] *)) {
+    color: hsl(var(--foreground));
+    font-weight: 600;
+  }
+
+  .prose :where(ul, ol):not(:where([class~="not-prose"] *)) {
+    padding-left: 1.5em;
+  }
+
+  .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+    border-left: 4px solid hsl(var(--primary));
+    padding-left: 1rem;
+    font-style: italic;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* 3D flip animation utilities for flashcards */
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}

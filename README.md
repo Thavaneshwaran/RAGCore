@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Thavaneshwaran/RAGCore/blob/main/banner.png?raw=1" width="90%" />
+  <img src="https://raw.githubusercontent.com/Thavaneshwaran/RAGCore/main/banner.png" width="90%" />
 </p>
 
 <p align="center">
@@ -11,13 +11,19 @@
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
 </p>
 
+# 🔍 RAGCore — Retrieval-Augmented AI Chat System
 
-📘 RAGCore — Retrieval-Augmented AI Chat System
+RAGCore is a high-performance, modular Retrieval-Augmented Generation (RAG) system built using **React**, **TypeScript**, **Vite**, and **Supabase**.  
+It supports **multiple LLM providers**, **document ingestion**, **embeddings**, **vector search**, **learning tools**, and an intuitive modern UI.
 
-RAGCore is a modular, high-performance Retrieval-Augmented Generation (RAG) chat system built with React, TypeScript, Vite, and Supabase.
-It supports multiple LLM providers, flexible RAG modes, embeddings, document ingestion, and learning tools—all wrapped in a clean, modern UI.
+This repository contains a fully cleaned version of the project with:
+- ❌ No secrets  
+- ❌ No node_modules  
+- ❌ No build artifacts  
+- ✅ Ready for local development  
+- ✅ Ready for deployment  
 
-This repository contains a fully cleaned version of the source code with no secrets, no node_modules, and no builder metadata.
+---
 
 ## 🧠 Tech Stack
 
@@ -27,7 +33,14 @@ This repository contains a fully cleaned version of the source code with no secr
 - 🤖 **Ollama / OpenAI / Gemini** – Pluggable LLM providers  
 - 🎙️ **Voice & OCR** – Multimedia input support  
 
+---
+
 ## 📸 Screenshots
+
+> Create the folder `/screenshots` and upload:
+> - `home.png`
+> - `chat.png`
+> - `settings.png`
 
 <p align="center">
   <img src="screenshots/home.png" width="80%" />
@@ -41,163 +54,97 @@ This repository contains a fully cleaned version of the source code with no secr
   <img src="screenshots/settings.png" width="80%" />
 </p>
 
-🚀 Features
-🔍 RAG Engine
+---
 
-PDF + text ingestion
+## 🚀 Features — RAG Engine
 
-Smart chunking
+- PDF + text ingestion  
+- Smart document chunking  
+- Vector storage using Supabase  
+- Contextual question answering  
+- Multi-RAG mode switching from UI  
+- Multi-LLM provider integration  
+- OCR + speech-to-text  
+- Flashcards & learning mode  
+- Conversation history & memory  
+- Embedding viewer & source explorer  
 
-Vector storage in Supabase
+---
 
-Similarity search + contextual answer generation
+## 🛠️ Project Structure
 
-Switch between multiple RAG modes in UI
+```
+src/
+  components/
+  lib/
+  rag/
+  integrations/
+  settings/
+  hooks/
+supabase/
+  functions/
+public/
+```
 
-🤖 LLM Provider Integration
+---
 
-Local Ollama
+## ⚙️ Local Development
 
-Cloud providers (OpenAI, Gemini, Groq, etc.)
+### 1️⃣ Install dependencies
 
-Provider selection UI
-
-Each mode configurable by the user
-
-🗣️ Voice + Media Tools
-
-Microphone input
-
-Text-to-speech
-
-OCR via Supabase Edge Functions
-
-📚 Learning Tools
-
-Flashcard generator
-
-Learning mode
-
-Notes summarization
-
-🧩 Clean Architecture
-
-Provider abstraction layer
-
-Embeddings pipeline
-
-Modular React components
-
-Supabase Functions for compute-heavy tasks
-
-📂 Project Structure
-RAGCore/
-│
-├── src/
-│   ├── components/         # UI components (chat, settings, panels)
-│   ├── lib/                # RAG logic, providers, embeddings, vector ops
-│   ├── hooks/              # Shared custom hooks
-│   ├── pages/              # Page-level components
-│   └── types/              # Shared TS types
-│
-├── supabase/
-│   └── functions/          # OCR, embeddings, TTS, voice-to-text
-│
-├── public/                 # Static assets
-├── .env.example            # Template for environment variables
-├── .gitignore              # Prevents secrets & build artifacts from being committed
-├── package.json
-├── vite.config.ts
-└── README.md
-
-🔧 Setup Instructions
-1️⃣ Install dependencies
+```
 npm install
+```
 
-2️⃣ Create your environment file
-cp .env.example .env
+### 2️⃣ Start dev server
 
-
-Fill in your Supabase + provider API keys:
-
-VITE_SUPABASE_URL=
-VITE_SUPABASE_PUBLISHABLE_KEY=
-VITE_SUPABASE_PROJECT_ID=
-
-# Optional
-# VITE_OPENAI_API_KEY=
-# VITE_OLLAMA_URL=
-# VITE_OLLAMA_API_KEY=
-
-
-✔ .env is private and ignored by Git—safe to use locally.
-
-▶️ Development Server
+```
 npm run dev
+```
 
+### 3️⃣ Configure environment
 
-App runs at:
+Copy:
 
-http://localhost:5173
+```
+cp .env.example .env
+```
 
-📦 Build for Production
+Fill in your personal API keys (kept private).
+
+---
+
+## 📦 Build for Production
+
+```
 npm run build
+```
 
-🔐 Security Guide
+---
 
-Your client-side environment variables beginning with VITE_ are public.
-Do NOT put:
+## 🧭 Roadmap
 
-Supabase service_role
+- Multi-document indexing  
+- Chunk-size tuning  
+- WebGPU local embeddings  
+- Local model download manager  
+- Chat analytics + session playback  
 
-Secret provider API keys
+---
 
-Admin tokens
+## 🤝 Contributing
 
-Rotate any compromised keys immediately.
+Pull requests are welcome!  
+Open an issue for new feature requests or improvements.
 
-🧪 Running Supabase Functions (optional)
-supabase start
-supabase functions serve --env-file .env
+---
 
-🛠️ Customizing RAG Behavior
-
-Core logic lives in:
-
-src/lib/rag/
-
-
-Key components:
-
-ragService.ts → RAG pipeline
-
-remoteProvider.ts → LLM provider switch
-
-vectorStore.ts → embedding/indexing
-
-chunker.ts → chunking strategies
-
-Settings UI:
-
-src/components/settings/
-
-🗺️ Roadmap
-
- Support multi-document indexing
-
- Add chunk-size tuning
-
- WebGPU-based local embedding
-
- Local model download manager
-
- Chat analytics + session playback
-
-🤝 Contributing
-
-Pull requests are welcome.
-Open an issue for feature requests or improvements.
-
-📄 License
+## 📄 License
 
 MIT License.
+
+---
+
+<p align="center">
+  Built with ❤️ by Thavaneshwaran
+</p>

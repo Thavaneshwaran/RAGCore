@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Thavaneshwaran/RAGCore/main/banner.png" width="90%" />
+  <img src="https://github.com/Thavaneshwaran/RAGCore/blob/main/banner.png?raw=1" width="90%" />
 </p>
 
 <p align="center">

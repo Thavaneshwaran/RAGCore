@@ -1,3 +1,17 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Thavaneshwaran/RAGCore/main/banner.png" width="90%" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react" />
+  <img src="https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript" />
+  <img src="https://img.shields.io/badge/Vite-Build-purple?style=for-the-badge&logo=vite" />
+  <img src="https://img.shields.io/badge/Supabase-Vector_DB-3ECF8E?style=for-the-badge&logo=supabase" />
+  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
+</p>
+
+
 📘 RAGCore — Retrieval-Augmented AI Chat System
 
 RAGCore is a modular, high-performance Retrieval-Augmented Generation (RAG) chat system built with React, TypeScript, Vite, and Supabase.

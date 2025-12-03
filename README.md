@@ -1,73 +1,167 @@
-# Welcome to your Lovable project
+📘 RAGCore — Retrieval-Augmented AI Chat System
 
-## Project info
+RAGCore is a modular, high-performance Retrieval-Augmented Generation (RAG) chat system built with React, TypeScript, Vite, and Supabase.
+It supports multiple LLM providers, flexible RAG modes, embeddings, document ingestion, and learning tools—all wrapped in a clean, modern UI.
 
-**URL**: https://lovable.dev/projects/feb67b60-6035-4d50-8b98-9a7f23b48039
+This repository contains a fully cleaned version of the source code with no secrets, no node_modules, and no builder metadata.
 
-## How can I edit this code?
+🚀 Features
+🔍 RAG Engine
 
-There are several ways of editing your application.
+PDF + text ingestion
 
-**Use Lovable**
+Smart chunking
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/feb67b60-6035-4d50-8b98-9a7f23b48039) and start prompting.
+Vector storage in Supabase
 
-Changes made via Lovable will be committed automatically to this repo.
+Similarity search + contextual answer generation
 
-**Use your preferred IDE**
+Switch between multiple RAG modes in UI
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+🤖 LLM Provider Integration
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Local Ollama
 
-Follow these steps:
+Cloud providers (OpenAI, Gemini, Groq, etc.)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Provider selection UI
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Each mode configurable by the user
 
-# Step 3: Install the necessary dependencies.
-npm i
+🗣️ Voice + Media Tools
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Microphone input
+
+Text-to-speech
+
+OCR via Supabase Edge Functions
+
+📚 Learning Tools
+
+Flashcard generator
+
+Learning mode
+
+Notes summarization
+
+🧩 Clean Architecture
+
+Provider abstraction layer
+
+Embeddings pipeline
+
+Modular React components
+
+Supabase Functions for compute-heavy tasks
+
+📂 Project Structure
+RAGCore/
+│
+├── src/
+│   ├── components/         # UI components (chat, settings, panels)
+│   ├── lib/                # RAG logic, providers, embeddings, vector ops
+│   ├── hooks/              # Shared custom hooks
+│   ├── pages/              # Page-level components
+│   └── types/              # Shared TS types
+│
+├── supabase/
+│   └── functions/          # OCR, embeddings, TTS, voice-to-text
+│
+├── public/                 # Static assets
+├── .env.example            # Template for environment variables
+├── .gitignore              # Prevents secrets & build artifacts from being committed
+├── package.json
+├── vite.config.ts
+└── README.md
+
+🔧 Setup Instructions
+1️⃣ Install dependencies
+npm install
+
+2️⃣ Create your environment file
+cp .env.example .env
+
+
+Fill in your Supabase + provider API keys:
+
+VITE_SUPABASE_URL=
+VITE_SUPABASE_PUBLISHABLE_KEY=
+VITE_SUPABASE_PROJECT_ID=
+
+# Optional
+# VITE_OPENAI_API_KEY=
+# VITE_OLLAMA_URL=
+# VITE_OLLAMA_API_KEY=
+
+
+✔ .env is private and ignored by Git—safe to use locally.
+
+▶️ Development Server
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+App runs at:
 
-**Use GitHub Codespaces**
+http://localhost:5173
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+📦 Build for Production
+npm run build
 
-## What technologies are used for this project?
+🔐 Security Guide
 
-This project is built with:
+Your client-side environment variables beginning with VITE_ are public.
+Do NOT put:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Supabase service_role
 
-## How can I deploy this project?
+Secret provider API keys
 
-Simply open [Lovable](https://lovable.dev/projects/feb67b60-6035-4d50-8b98-9a7f23b48039) and click on Share -> Publish.
+Admin tokens
 
-## Can I connect a custom domain to my Lovable project?
+Rotate any compromised keys immediately.
 
-Yes, you can!
+🧪 Running Supabase Functions (optional)
+supabase start
+supabase functions serve --env-file .env
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+🛠️ Customizing RAG Behavior
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Core logic lives in:
+
+src/lib/rag/
+
+
+Key components:
+
+ragService.ts → RAG pipeline
+
+remoteProvider.ts → LLM provider switch
+
+vectorStore.ts → embedding/indexing
+
+chunker.ts → chunking strategies
+
+Settings UI:
+
+src/components/settings/
+
+🗺️ Roadmap
+
+ Support multi-document indexing
+
+ Add chunk-size tuning
+
+ WebGPU-based local embedding
+
+ Local model download manager
+
+ Chat analytics + session playback
+
+🤝 Contributing
+
+Pull requests are welcome.
+Open an issue for feature requests or improvements.
+
+📄 License
+
+MIT License.

@@ -19,6 +19,14 @@ It supports multiple LLM providers, flexible RAG modes, embeddings, document ing
 
 This repository contains a fully cleaned version of the source code with no secrets, no node_modules, and no builder metadata.
 
+## 🧠 Tech Stack
+
+- ⚡ **Vite** – Lightning-fast frontend tooling  
+- ⚛️ **React + TypeScript** – Strongly typed, modern UI  
+- 🟩 **Supabase** – Vector DB + Edge Functions  
+- 🤖 **Ollama / OpenAI / Gemini** – Pluggable LLM providers  
+- 🎙️ **Voice & OCR** – Multimedia input support  
+
 🚀 Features
 🔍 RAG Engine
 

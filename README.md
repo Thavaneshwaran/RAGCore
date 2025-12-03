@@ -27,6 +27,20 @@ This repository contains a fully cleaned version of the source code with no secr
 - 🤖 **Ollama / OpenAI / Gemini** – Pluggable LLM providers  
 - 🎙️ **Voice & OCR** – Multimedia input support  
 
+## 📸 Screenshots
+
+<p align="center">
+  <img src="screenshots/home.png" width="80%" />
+</p>
+
+<p align="center">
+  <img src="screenshots/chat.png" width="80%" />
+</p>
+
+<p align="center">
+  <img src="screenshots/settings.png" width="80%" />
+</p>
+
 🚀 Features
 🔍 RAG Engine
 

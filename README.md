@@ -53,7 +53,6 @@ This repository contains a fully cleaned version of the project with:
 <p align="center">
   <img src="screenshots/settings.png" width="80%" />
 </p>
-
 ---
 
 ## 🚀 Features — RAG Engine
